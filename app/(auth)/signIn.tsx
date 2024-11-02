@@ -15,7 +15,7 @@ import { useRouter } from "expo-router";
 const AddUser = require("../../assets/images/add-user.png");
 const Google = require("../../assets/images/google-1.png");
 
-export default function SignUpScreen() {
+export default function SignInScreen() {
   const router = useRouter();
 
   const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -45,29 +45,17 @@ export default function SignUpScreen() {
   //   }
   // };
 
-  const handleSignInPress = () => {
-    router.push("/(auth)/signIn");
+  const handleSignUpPress = () => {
+    router.push("/(auth)/signUp");
   };
 
   return (
-    <SafeAreaView className="flex-1 bg-white p-6 font-sans">
+    <SafeAreaView className="flex-1 bg-white p-6 mt-10">
       <View className="my-4 flex-row">
         <Image source={AddUser} className="w-12 h-12" />
         <Text className="font-bold text-3xl justify-center self-center p-2">
-          Sign Up
+          Sign In
         </Text>
-      </View>
-
-      <View className="mb-4">
-        <Text className="font-semibold text-lg mb-2">Name</Text>
-        <View className="flex flex-row items-center border border-gray-300 rounded-xl p-3">
-          <FontAwesome name="user" size={20} color="gray" className="m-4" />
-          <TextInput
-            placeholder="Enter your name"
-            className="flex-1 text-xl"
-            style={{ paddingVertical: 0, paddingHorizontal: 8 }}
-          />
-        </View>
       </View>
 
       <View className="mb-4">
@@ -102,33 +90,17 @@ export default function SignUpScreen() {
         </View>
       </View>
 
-      <View className="flex-row items-center mb-4">
-        <TouchableOpacity onPress={handleCheckboxPress} className="mr-2">
-          <View
-            className={`w-5 h-5 border border-gray-300 rounded ${
-              isChecked ? "bg-blue-500" : "bg-white"
-            }`}
-          >
-            {isChecked && <Text className="text-white text-center">✔</Text>}
-          </View>
-        </TouchableOpacity>
-        <Text className="text-lg">
-          I agree to{" "}
-          <TouchableOpacity onPress={handleTermsPress}>
-            <Text className="text-blue-500 underline">Terms & Conditions</Text>
-          </TouchableOpacity>
-        </Text>
-      </View>
-
       <TouchableOpacity className="w-full bg-[#4577FF] rounded-xl justify-center items-center mt-8 p-3">
-        <Text className="text-white text-xl">Sign Up</Text>
+        <Text className="text-white text-xl">Sign In</Text>
       </TouchableOpacity>
 
       <View>
         <Text className="text-center text-lg mt-4">
-          Already have an account?{" "}
-          <TouchableOpacity onPress={handleSignInPress}>
-            <Text className="text-blue-500 text-lg">Sign In</Text>
+          Don't have an account?{" "}
+          <TouchableOpacity>
+            <Text className="text-blue-500 text-lg" onPress={handleSignUpPress}>
+              Sign Up
+            </Text>
           </TouchableOpacity>
         </Text>
       </View>
@@ -148,7 +120,7 @@ export default function SignUpScreen() {
           source={Google} // Google logo
           style={{ width: 24, height: 24, marginRight: 10 }}
         />
-        <Text className="text-gray-700 text-lg">Sign Up with Google</Text>
+        <Text className="text-gray-700 text-lg">Sign In with Google</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );

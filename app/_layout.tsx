@@ -16,7 +16,7 @@ import { useColorScheme } from "@/components/useColorScheme";
 export { ErrorBoundary } from "expo-router";
 
 export const unstable_settings = {
-  initialRouteName: "(onboarding)", // Ensures onboarding is the initial route
+  initialRouteName: "(carousel)", // Ensures onboarding is the initial route
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -52,7 +52,7 @@ function RootLayoutNav() {
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
         {/* Screens in the order of appearance */}
-        <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
+        <Stack.Screen name="(carousel)" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: "modal" }} />
