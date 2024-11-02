@@ -10,7 +10,7 @@ import {
   Image,
   TouchableOpacity,
 } from "react-native";
-import { useNavigation } from "@react-navigation/native"; // Import navigation hook
+import { useRouter } from "expo-router";
 
 const Slide1 = require("../../assets/images/slide-1.jpeg");
 const Slide2 = require("../../assets/images/slide-2.jpeg");
@@ -32,9 +32,9 @@ const WIDTH = Dimensions.get("window").width;
 const HEIGHT = Dimensions.get("window").height;
 
 export default function _layout() {
+  const router = useRouter();
   const [imgActive, setImgActive] = useState(0);
   const scrollRef = useRef<ScrollView>(null);
-  const navigation = useNavigation(); // Initialize navigation
 
   const onchange = (nativeEvent: any) => {
     if (nativeEvent) {
@@ -57,7 +57,7 @@ export default function _layout() {
   };
 
   const handleContinue = () => {
-    navigation.navigate("SignUp"); // Navigate to SignUp screen
+    router.push("/signUp");
   };
 
   return (

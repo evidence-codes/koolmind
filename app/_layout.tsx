@@ -13,14 +13,10 @@ import "../global.css";
 
 import { useColorScheme } from "@/components/useColorScheme";
 
-export {
-  // Catch any errors thrown by the Layout component.
-  ErrorBoundary,
-} from "expo-router";
+export { ErrorBoundary } from "expo-router";
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
-  initialRouteName: "(carousel)",
+  initialRouteName: "(onboarding)", // Ensures onboarding is the initial route
 };
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -32,19 +28,18 @@ export default function RootLayout() {
     ...FontAwesome.font,
   });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
   useEffect(() => {
     if (error) throw error;
   }, [error]);
 
   useEffect(() => {
     if (loaded) {
-      SplashScreen.hideAsync();
+      SplashScreen.hideAsync(); // Hides splash screen once assets are loaded
     }
   }, [loaded]);
 
   if (!loaded) {
-    return null;
+    return null; // Keeps splash screen visible until fonts are loaded
   }
 
   return <RootLayoutNav />;
@@ -56,6 +51,7 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
       <Stack>
+        {/* Screens in the order of appearance */}
         <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
