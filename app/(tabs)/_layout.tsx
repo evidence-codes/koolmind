@@ -1,15 +1,13 @@
-import React from 'react';
-import FontAwesome from '@expo/vector-icons/FontAwesome';
-import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import React from "react";
+import FontAwesome from "@expo/vector-icons/FontAwesome";
+import { Tabs } from "expo-router";
+import Colors from "@/constants/Colors";
+import { useColorScheme } from "@/components/useColorScheme";
+// import { useClientOnlyValue } from "@/components/useClientOnlyValue";
 
-import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
-import { useClientOnlyValue } from '@/components/useClientOnlyValue';
-
-// You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
+// Component for rendering tab bar icons with FontAwesome
 function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>['name'];
+  name: React.ComponentProps<typeof FontAwesome>["name"];
   color: string;
 }) {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
@@ -21,37 +19,45 @@ export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        // Disable the static render of the header on web
-        // to prevent a hydration error in React Navigation v6.
-        headerShown: useClientOnlyValue(false, true),
-      }}>
+        tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
+        headerShown: false,
+      }}
+    >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
-          title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-          headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+          title: "Home",
+          tabBarIcon: ({ color }) => <TabBarIcon name="home" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="calm-tools"
+        options={{
+          title: "Calm Tools",
+          tabBarIcon: ({ color }) => <TabBarIcon name="leaf" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="ai-chat"
+        options={{
+          title: "AI Chat",
+          tabBarIcon: ({ color }) => (
+            <TabBarIcon name="comments" color={color} />
           ),
         }}
       />
       <Tabs.Screen
-        name="two"
+        name="resources"
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          title: "Resources",
+          tabBarIcon: ({ color }) => <TabBarIcon name="book" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: "Profile",
+          tabBarIcon: ({ color }) => <TabBarIcon name="user" color={color} />,
         }}
       />
     </Tabs>

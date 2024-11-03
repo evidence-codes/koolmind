@@ -54,6 +54,7 @@ function RootLayoutNav() {
         {/* Screens in the order of appearance */}
         <Stack.Screen name="(carousel)" options={{ headerShown: false }} />
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+        <Stack.Screen name="(onboarding)" options={{ headerShown: false }} />
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: "modal" }} />
       </Stack>

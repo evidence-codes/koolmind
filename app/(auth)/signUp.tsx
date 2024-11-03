@@ -11,6 +11,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useState } from "react";
 // import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { useRouter } from "expo-router";
+import PrimaryButton from "@/components/Button";
 
 const AddUser = require("../../assets/images/add-user.png");
 const Google = require("../../assets/images/google-1.png");
@@ -120,9 +121,7 @@ export default function SignUpScreen() {
         </Text>
       </View>
 
-      <TouchableOpacity className="w-full bg-[#4577FF] rounded-xl justify-center items-center mt-8 p-3">
-        <Text className="text-white text-xl">Sign Up</Text>
-      </TouchableOpacity>
+      <PrimaryButton title="Sign Up" onPress={handleSignInPress} />
 
       <View>
         <Text className="text-center text-lg mt-4">
