@@ -16,11 +16,12 @@ const articles = require("../../assets/images/articles.jpeg");
 const consultations = require("../../assets/images/consultations.jpeg");
 const thinking = require("../../assets/images/thinking.jpeg");
 const listening = require("../../assets/images/listening.jpeg");
+const diary = require("../../assets/images/diary.jpeg");
 
 export default function HomeScreen() {
   return (
     <SafeAreaView className="flex-1 bg-white px-4">
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View className="flex-row items-center justify-between pt-4">
           <View className="flex-row items-center">
             <Image source={dp} className="w-12 h-12 rounded-full" />
@@ -114,18 +115,24 @@ export default function HomeScreen() {
 
         <View>
           <Text className="text-xl font-semibold my-4">Quick Access</Text>
-          <View className="flex-row items-center justify-between">
-            <View className="w-[48%]">
+          <View className="flex-row items-center justify-between flex-wrap ">
+            <View className="w-[48%] my-1">
               <TouchableOpacity className="rounded-lg">
                 <Image source={thinking} className="w-full h-36 rounded-lg" />
               </TouchableOpacity>
-              <Text className="text-center">Thinking</Text>
+              <Text className="">Calm Tools</Text>
             </View>
-            <View className="w-[48%]">
+            <View className="w-[48%] my-1">
               <TouchableOpacity>
                 <Image source={listening} className="w-full h-36 rounded-lg" />
               </TouchableOpacity>
-              <Text className="text-center">Listening</Text>
+              <Text className="">Playlists</Text>
+            </View>
+            <View className="w-[48%] my-1">
+              <TouchableOpacity>
+                <Image source={diary} className="w-full h-36 rounded-lg" />
+              </TouchableOpacity>
+              <Text className="">Diary</Text>
             </View>
           </View>
         </View>

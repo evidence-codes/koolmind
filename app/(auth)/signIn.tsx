@@ -11,7 +11,7 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useState } from "react";
 // import { GoogleSignin } from "@react-native-google-signin/google-signin";
 import { useRouter } from "expo-router";
-import PrimaryButton from "@/components/Button";
+import PrimaryButton from "@/components/global/Button";
 
 const AddUser = require("../../assets/images/add-user.png");
 const Google = require("../../assets/images/google-1.png");

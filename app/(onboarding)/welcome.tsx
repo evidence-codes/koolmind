@@ -1,6 +1,6 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Image, View, Text } from "react-native";
-import PrimaryButton from "@/components/Button";
+import PrimaryButton from "@/components/global/Button";
 import { useRouter } from "expo-router";
 
 const logo = require("../../assets/images/logo.png");
